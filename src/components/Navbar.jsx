@@ -33,18 +33,18 @@ export const Navbar = () => {
         <Link to={"/home"}>
           <li className=" hover:text-primary">Home</li>
         </Link>
-        <a href="#about">
+        <Link to={"/about"}>
           <li className=" hover:text-primary">About</li>
-        </a>
-        <a href="#seat">
+        </Link>
+        <Link to={"/seat"}>
           <li className="  hover:text-primary">Seat</li>
-        </a>
-        <a href="#menu">
+        </Link>
+        <Link to={"/menu"}>
           <li className=" hover:text-primary">Menu</li>
-        </a>
-        <a href="#books">
+        </Link>
+        <Link to={"/books"}>
           <li className=" hover:text-primary">Books</li>
-        </a>
+        </Link>
       </ul>
       <div className="flex gap-7">
         <CiShoppingCart className="hidden md:block" size={40} />
@@ -60,42 +60,42 @@ export const Navbar = () => {
       >
         <h1
           id="cnc"
-          className="w-full m-4 text-lg font-medium tracking-widest text-primary"
+          className="w-full m-4 py-5 text-lg font-medium tracking-widest text-primary"
         >
           Caffeine and Chapters
         </h1>
 
         <ul className="p-4 uppercase">
-          <a onClick={handleNav} href="#home">
+          <Link to={"/home"} onClick={handleNav}>
             <li className="p-4 border-b border-gray-600 active:bg-primary">
               Home
             </li>
-          </a>
-          <a onClick={handleNav} href="#about">
+          </Link>
+          <Link to={"/about"} onClick={handleNav}>
             <li className="p-4 border-b border-gray-600 active:bg-primary">
               About
             </li>
-          </a>
-          <a onClick={handleNav} href="#seat">
+          </Link>
+          <Link to={"/seat"} onClick={handleNav}>
             <li className="p-4 border-b border-gray-600 active:bg-primary">
               Seat
             </li>
-          </a>
-          <a onClick={handleNav} href="#menu">
+          </Link>
+          <Link to={"/menu"} onClick={handleNav}>
             <li className="p-4 border-b border-gray-600 active:bg-primary">
               Menu
             </li>
-          </a>
-          <a onClick={handleNav} href="#books">
+          </Link>
+          <Link to={"/books"} onClick={handleNav}>
             <li className="p-4 border-b border-gray-600 active:bg-primary">
               Books
             </li>
-          </a>
-          <a onClick={handleNav} href="#menu">
+          </Link>
+          <Link to={"/"} onClick={handleNav}>
             <button className="p-4 px-6 py-2 mt-4 border border-black rounded-lg active:bg-primary">
               Logout
             </button>
-          </a>
+          </Link>
         </ul>
       </div>
     </div>
