@@ -33,7 +33,7 @@ const Cart = () => {
             <tr className="border-b">
               <td className="px-4 py-2">
                 <img
-                  className="w-11 md:w-16 lg:w-20 object-contain"
+                  className="w-11 md:w-16 lg:w-20 object-contain mx-auto"
                   src={coffee6}
                   alt=""
                 />
@@ -53,7 +53,7 @@ const Cart = () => {
             <tr className="border-b">
               <td className="px-4 py-2">
                 <img
-                  className="w-11 md:w-16 lg:w-20 object-contain"
+                  className="w-11 md:w-16 lg:w-20 object-contain mx-auto"
                   src={coffee7}
                   alt=""
                 />
@@ -73,7 +73,7 @@ const Cart = () => {
             <tr className="border-b">
               <td className="px-4 py-2">
                 <img
-                  className="w-11 md:w-16 lg:w-20 object-contain"
+                  className="w-11 md:w-16 lg:w-20 object-contain mx-auto"
                   src={coffee3}
                   alt=""
                 />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import books1 from "../assets/books1.png";
 import books2 from "../assets/books2.png";
 import books3 from "../assets/books3.png";
@@ -7,7 +7,18 @@ import books5 from "../assets/books5.png";
 import books6 from "../assets/books6.png";
 import books7 from "../assets/books7.png";
 import books8 from "../assets/books8.png";
+import random from "../assets/random.jpg";
 const Books = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const viewBook = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="w-full h-full pt-24 px-2">
       <h1 id="cnc" className="text-base pl-4 pt-4">
@@ -27,7 +38,10 @@ const Books = () => {
             </h1>
             <p>by Hanya Yanagihara</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
@@ -46,7 +60,10 @@ const Books = () => {
             </h1>
             <p>by Won-Pyung Sohn</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
@@ -65,7 +82,10 @@ const Books = () => {
             </h1>
             <p>by Dan Brown</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
@@ -84,7 +104,10 @@ const Books = () => {
             </h1>
             <p>by Anthony Doerr</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
@@ -103,7 +126,10 @@ const Books = () => {
             </h1>
             <p>by Goerge Orwell</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
@@ -122,7 +148,10 @@ const Books = () => {
             </h1>
             <p>by James Clear</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
@@ -141,7 +170,10 @@ const Books = () => {
             </h1>
             <p>by Mariana Zapata</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
@@ -160,12 +192,56 @@ const Books = () => {
             </h1>
             <p>by Bianca Sparacino</p>
             <div className="flex justify-center ">
-              <button className="px-4 py-2 bg-secondary rounded-lg">
+              <button
+                className="px-4 py-2 bg-secondary rounded-lg"
+                onClick={viewBook}
+              >
                 View
               </button>
             </div>
           </div>
         </div>
+        {showModal && (
+          <div className="fixed bg-primary top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-50">
+            <div className="bg-white border-4 border-primary p-8 rounded-lg text-center">
+              <img
+                className="h-40 w-28 mx-auto object-cover"
+                src={random}
+                alt=""
+              />
+              <h1 id="cnc" className="md:text-lg lg:text-xl">
+                Title of the Book
+              </h1>
+              <p className="text-xs md:text-base lg:text-lg font-extralight">
+                by Sean Jimwell Buclatin
+              </p>
+
+              <p className="text-xs md:text-base lg:text-lg">
+                Number of Pages: <span className="font-bold">720pages</span>
+              </p>
+              <p className="text-xs md:text-base lg:text-lg">
+                Publisher: <span className="font-bold">Anonymous</span>
+              </p>
+              <p className="text-xs md:text-base lg:text-lg">
+                Date of Publication: <span className="font-bold">2005</span>
+              </p>
+              <p className="text-xs md:text-base lg:text-lg">
+                Availability:{" "}
+                <span className="font-bold">Available to use</span>
+              </p>
+              <p className="text-xs md:text-base lg:text-lg">
+                Book Condition:{" "}
+                <span className="font-bold">Good with Plastic Cover</span>
+              </p>
+              <button
+                className="mt-4 px-4 py-2 bg-secondary rounded-lg"
+                onClick={closeModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
