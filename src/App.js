@@ -9,6 +9,10 @@ import { Home } from "./components/Home";
 import { Login } from "./components/Login";
 import About from "./components/About";
 import Signup from "./components/Signup";
+import Menu from "./components/Menu";
+import Books from "./components/Books";
+import Cart from "./components/Cart";
+import Account from "./components/Account";
 
 function AppRoutes() {
   const location = useLocation();
@@ -25,6 +29,10 @@ function AppRoutes() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </div>
   );

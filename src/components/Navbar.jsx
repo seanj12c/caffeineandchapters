@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { CiShoppingCart, CiUser } from "react-icons/ci";
+import { CiShoppingCart, CiUser, CiLogout } from "react-icons/ci";
 import logo from "../assets/logocp.png";
 import { Link } from "react-router-dom";
 
@@ -16,19 +16,9 @@ export const Navbar = () => {
       <div onClick={handleNav} className="block p-2 md:hidden">
         {nav ? <AiOutlineClose size={28} /> : <AiOutlineMenu size={28} />}
       </div>
-      <a href="#home">
-        <h1
-          id="cnc"
-          className="w-full text-xl font-medium tracking-widest hidden md:block text-primary"
-        >
-          Caffeine and Chapters
-        </h1>
-        <img
-          src={logo}
-          alt="logo"
-          className="md:hidden block w-28 object-contain"
-        />
-      </a>
+      <Link to={"/home"}>
+        <img src={logo} alt="logo" className=" w-28 object-contain" />
+      </Link>
       <ul className="hidden text-lg md:flex gap-5">
         <Link to={"/home"}>
           <li className=" hover:text-primary">Home</li>
@@ -47,8 +37,16 @@ export const Navbar = () => {
         </Link>
       </ul>
       <div className="flex gap-7">
-        <CiShoppingCart className="hidden md:block" size={40} />
-        <CiUser size={40} />
+        <button>
+          <Link to={"/cart"}>
+            <CiShoppingCart className="hidden md:block" size={40} />
+          </Link>
+        </button>
+        <button>
+          <Link to={"/account"}>
+            <CiUser size={40} />
+          </Link>
+        </button>
       </div>
 
       <div
@@ -91,11 +89,18 @@ export const Navbar = () => {
               Books
             </li>
           </Link>
-          <Link to={"/"} onClick={handleNav}>
-            <button className="p-4 px-6 py-2 mt-4 border border-black rounded-lg active:bg-primary">
-              Logout
-            </button>
-          </Link>
+          <div className="flex gap-5">
+            <Link to={"/cart"} onClick={handleNav}>
+              <button className="p-4 px-6 py-2 mt-4 border border-black rounded-lg active:bg-primary flex gap-3 items-center">
+                <CiShoppingCart /> Cart
+              </button>
+            </Link>
+            <Link to={"/"} onClick={handleNav}>
+              <button className=" bg-primary text-white p-4 px-6 py-2 mt-4 border border-black rounded-lg active:bg-primary flex gap-3 items-center">
+                <CiLogout /> Logout
+              </button>
+            </Link>
+          </div>
         </ul>
       </div>
     </div>

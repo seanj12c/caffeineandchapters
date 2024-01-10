@@ -1,5 +1,6 @@
 import React from "react";
 import coffee from "../assets/coffee.png";
+import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div className="h-full w-full pt-24 md:px-20 md:h-screen md:flex flex-row-reverse ">
@@ -23,9 +24,11 @@ export const Home = () => {
           sip enhances the magic of each chapter. Immerse yourself in a world
           where words and caffeine unite for a uniquely enriching escape.
         </p>
-        <button className="bg-secondary mx-auto rounded-lg py-2 px-3">
-          Order Now
-        </button>
+        <Link to={"/menu"}>
+          <button className="bg-secondary mx-auto rounded-lg py-2 px-3">
+            Order Now
+          </button>
+        </Link>
       </div>
     </div>
   );
