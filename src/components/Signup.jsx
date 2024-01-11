@@ -12,10 +12,14 @@ export const Signup = () => {
     setShowModal(true);
   };
 
-  const closeModal = () => {
+  const successRegister = () => {
     setShowModal(false);
     window.alert("Account registration successfully!");
-    navigate("/login");
+    navigate("/home");
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -250,14 +254,13 @@ export const Signup = () => {
               alt=""
             />
             <div className="flex gap-2 justify-center items-center">
-              <Link to={"/"}>
-                <button
-                  className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
-                  onClick={closeModal}
-                >
-                  Register
-                </button>
-              </Link>
+              <button
+                className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
+                onClick={successRegister}
+              >
+                Register
+              </button>
+
               <button
                 className="mt-4 px-4 py-2 bg-secondary rounded-lg"
                 onClick={closeModal}

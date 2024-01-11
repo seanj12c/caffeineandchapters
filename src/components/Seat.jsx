@@ -17,10 +17,14 @@ const Seat = () => {
     setShowModal(true);
   };
 
-  const closeModal = () => {
+  const seatSuccess = () => {
     setShowModal(false);
     window.alert("Seat Reservation Successful!");
     navigate("/account");
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -107,7 +111,7 @@ const Seat = () => {
             <div className="flex gap-2 justify-center items-center">
               <button
                 className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
-                onClick={closeModal}
+                onClick={seatSuccess}
               >
                 Confirm
               </button>

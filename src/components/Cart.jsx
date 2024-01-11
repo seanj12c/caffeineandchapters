@@ -91,10 +91,14 @@ const Cart = () => {
     setShowModal(true);
   };
 
-  const handleModalClose = () => {
+  const orderSuccess = () => {
     setShowModal(false);
     window.alert("Order submitted successfully!");
     navigate("/account");
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
   };
 
   return (
@@ -233,7 +237,7 @@ const Cart = () => {
                 </select>
               </div>
               <button
-                onClick={handleModalClose}
+                onClick={orderSuccess}
                 className="bg-primary w-full text-white px-4 py-2 mt-4 rounded-md"
               >
                 Submit Order
