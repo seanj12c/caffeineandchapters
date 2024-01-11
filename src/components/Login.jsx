@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../assets/Loga.png";
 import googlelogo from "../assets/google.png";
 import { Link } from "react-router-dom";
+import Clock from "react-live-clock";
 export const Login = () => {
   return (
     <div className="h-full w-full">
@@ -82,6 +83,17 @@ export const Login = () => {
       <div className="md:flex justify-between hidden h-screen w-full">
         <div className="w-2/5 bg-primary flex justify-between flex-col">
           <div className="text-center pt-32 flex flex-col w-full gap-3">
+            <Clock
+              className="text-5xl"
+              id="cnc"
+              format={"h:mm:ss A"}
+              ticking={true}
+              timezone={"Asia/Manila"}
+              style={{
+                color: "white",
+                fontFamily: "Orbitron, sans-serif",
+              }}
+            />
             <button>
               <Link
                 id="cnc"

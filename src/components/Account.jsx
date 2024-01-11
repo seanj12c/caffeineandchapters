@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import profile from "../assets/profile.jpg";
 import cover from "../assets/cover.jpg";
 import { CiLocationArrow1, CiLogout, CiPhone } from "react-icons/ci";
@@ -7,7 +7,19 @@ import coffee5 from "../assets/coffee5.png";
 import coffee1 from "../assets/coffee1.png";
 import coffee2 from "../assets/coffee2.png";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
+import logout from "../assets/logout.gif";
 const Account = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const logOut = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="h-full w-full pt-24">
       <div className="w-full">
@@ -51,18 +63,29 @@ const Account = () => {
               <p className="pl-5">+639 652 37 6005</p>
             </div>
 
-            <Link to={"/"}>
-              <button className="hidden md:flex bg-primary text-white p-4 px-6 py-2 mt-1 border border-black rounded-lg active:bg-primary  gap-3 items-center">
-                <CiLogout /> Logout
-              </button>
-            </Link>
+            <button
+              onClick={logOut}
+              className="hidden md:flex bg-primary text-white p-4 px-6 py-2 mt-1 border border-black rounded-lg active:bg-primary  gap-3 items-center"
+            >
+              <CiLogout /> Logout
+            </button>
           </div>
         </div>
 
         <div className="bg-secondary h-full md:text-lg lg:text-xl mt-10 lg:mt-0 rounded-2xl p-2 w-full ">
           <div className="flex gap-2 justify-center items-center">
             <h1>Recent Orders</h1>{" "}
-            <p className="px-3 py-2 bg-white rounded-lg">1,103</p>
+            <p className="px-3 py-2 bg-white font-bold rounded-lg">
+              {" "}
+              <CountUp
+                start={0}
+                end={1103}
+                duration={2.5}
+                separator=","
+                decimals={0}
+                className="px-3 py-2 bg-white rounded-lg"
+              />
+            </p>
           </div>
           <div className="flex gap-2 justify-center text-xs md:text-base lg:text-lg md:gap-6 lg:gap-11 items-center  border-b">
             <img className="w-20 object-contain" alt="coffee5" src={coffee5} />
@@ -99,6 +122,30 @@ const Account = () => {
           </div>
         </div>
       </div>
+      {showModal && (
+        <div className="fixed bg-primary top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white border-4 border-primary p-8 rounded-lg text-center">
+            <p>Are you sure you want to Log-out?</p>
+            <img className="w-20 object-contain mx-auto" src={logout} alt="" />
+            <div className="flex gap-2 justify-center items-center">
+              <Link to={"/"}>
+                <button
+                  className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
+                  onClick={closeModal}
+                >
+                  Log-out
+                </button>
+              </Link>
+              <button
+                className="mt-4 px-4 py-2 bg-secondary rounded-lg"
+                onClick={closeModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

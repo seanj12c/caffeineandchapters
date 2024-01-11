@@ -3,12 +3,23 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { CiShoppingCart, CiUser, CiLogout } from "react-icons/ci";
 import logo from "../assets/logocp.png";
 import { Link } from "react-router-dom";
+import logout from "../assets/logout.gif";
 
 export const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
     setNav(!nav);
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const logOut = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -63,7 +74,7 @@ export const Navbar = () => {
           Caffeine and Chapters
         </h1>
 
-        <ul className="p-4 uppercase">
+        <ul className="p-1 uppercase">
           <Link to={"/home"} onClick={handleNav}>
             <li className="p-4 border-b border-gray-600 active:bg-primary">
               Home
@@ -89,20 +100,46 @@ export const Navbar = () => {
               Books
             </li>
           </Link>
-          <div className="flex gap-5">
+          <div className="flex gap-2">
             <Link to={"/cart"} onClick={handleNav}>
               <button className="p-4 px-6 py-2 mt-4 border border-black rounded-lg active:bg-primary flex gap-3 items-center">
                 <CiShoppingCart /> Cart
               </button>
             </Link>
-            <Link to={"/"} onClick={handleNav}>
-              <button className=" bg-primary text-white p-4 px-6 py-2 mt-4 border border-black rounded-lg active:bg-primary flex gap-3 items-center">
-                <CiLogout /> Logout
-              </button>
-            </Link>
+
+            <button
+              onClick={logOut}
+              className=" bg-primary text-white p-4 px-6 py-2 mt-4 border border-black rounded-lg active:bg-primary flex gap-3 items-center"
+            >
+              <CiLogout /> Logout
+            </button>
           </div>
         </ul>
       </div>
+      {showModal && (
+        <div className="fixed bg-primary top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white border-4 border-primary p-8 rounded-lg text-center">
+            <p>Are you sure you want to Log-out?</p>
+            <img className="w-20 object-contain mx-auto" src={logout} alt="" />
+            <div className="flex gap-2 justify-center items-center">
+              <Link to={"/"}>
+                <button
+                  className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
+                  onClick={closeModal}
+                >
+                  Log-out
+                </button>
+              </Link>
+              <button
+                className="mt-4 px-4 py-2 bg-secondary rounded-lg"
+                onClick={closeModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

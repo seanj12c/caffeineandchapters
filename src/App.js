@@ -13,6 +13,7 @@ import Menu from "./components/Menu";
 import Books from "./components/Books";
 import Cart from "./components/Cart";
 import Account from "./components/Account";
+import Seat from "./components/Seat";
 
 function AppRoutes() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function AppRoutes() {
         <Route path="/books" element={<Books />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/seat" element={<Seat />} />
       </Routes>
     </div>
   );

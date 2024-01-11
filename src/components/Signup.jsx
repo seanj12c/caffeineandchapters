@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/Loga.png";
 import googlelogo from "../assets/google.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Clock from "react-live-clock";
+import register from "../assets/register.gif";
 export const Signup = () => {
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  const registerAccount = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    window.alert("Account registration successfully!");
+    navigate("/login");
+  };
+
   return (
     <div className="h-full w-full ">
       <div className="block md:hidden">
@@ -82,13 +97,12 @@ export const Signup = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center gap-2">
-              <button>
-                <Link
-                  className="flex items-center justify-center mx-auto bg-primary px-5 py-2 w-52 rounded-lg text-white"
-                  to={"/home"}
-                >
-                  Register
-                </Link>
+              <button
+                type="button"
+                onClick={registerAccount}
+                className="flex items-center justify-center mx-auto bg-primary px-5 py-2 w-52 rounded-lg text-white"
+              >
+                Register
               </button>
               <button className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg">
                 <img
@@ -113,6 +127,17 @@ export const Signup = () => {
       <div className="md:flex justify-between hidden h-screen w-full">
         <div className="w-2/5 bg-primary flex justify-between flex-col">
           <div className="text-center pt-32 flex flex-col w-full gap-3">
+            <Clock
+              className="text-5xl"
+              id="cnc"
+              format={"h:mm:ss A"}
+              ticking={true}
+              timezone={"Asia/Manila"}
+              style={{
+                color: "white",
+                fontFamily: "Orbitron, sans-serif",
+              }}
+            />
             <button>
               <Link
                 id="cnc"
@@ -190,13 +215,12 @@ export const Signup = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center gap-2">
-              <button>
-                <Link
-                  className="flex items-center justify-center mx-auto bg-primary px-5 py-2 w-52 rounded-lg text-white"
-                  to={"/home"}
-                >
-                  Register
-                </Link>
+              <button
+                type="button"
+                onClick={registerAccount}
+                className="flex items-center justify-center mx-auto bg-primary px-5 py-2 w-52 rounded-lg text-white"
+              >
+                Register
               </button>
               <button className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg">
                 <img
@@ -216,6 +240,34 @@ export const Signup = () => {
           </form>
         </div>
       </div>
+      {showModal && (
+        <div className="fixed bg-primary top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white border-4 border-primary p-8 rounded-lg text-center">
+            <p>Are you sure you want to Register?</p>
+            <img
+              className="w-20 object-contain mx-auto"
+              src={register}
+              alt=""
+            />
+            <div className="flex gap-2 justify-center items-center">
+              <Link to={"/"}>
+                <button
+                  className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
+                  onClick={closeModal}
+                >
+                  Register
+                </button>
+              </Link>
+              <button
+                className="mt-4 px-4 py-2 bg-secondary rounded-lg"
+                onClick={closeModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
