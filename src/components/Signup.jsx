@@ -6,6 +6,8 @@ import Clock from "react-live-clock";
 import register from "../assets/register.gif";
 export const Signup = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+
   const navigate = useNavigate();
 
   const registerAccount = () => {
@@ -20,6 +22,20 @@ export const Signup = () => {
 
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const privacyPolicy = () => {
+    setShowModal2(true);
+  };
+
+  const closeModal2 = () => {
+    setShowModal2(false);
+  };
+
+  const showGoogle = () => {
+    window.alert(
+      "Wala po tayong database kaya wala pong Google Sign-in \nDesign lang po talaga yun XD"
+    );
   };
 
   return (
@@ -108,7 +124,10 @@ export const Signup = () => {
               >
                 Register
               </button>
-              <button className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg">
+              <button
+                onClick={showGoogle}
+                className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg"
+              >
                 <img
                   className="w-4 object-contain items-center"
                   src={googlelogo}
@@ -212,9 +231,13 @@ export const Signup = () => {
                 <input type="checkbox" id="rememberMe" className="mr-2" />
                 <label htmlFor="rememberMe" className=" text-sm">
                   I agree to{" "}
-                  <span className="text-primary">
+                  <button
+                    type="button"
+                    onClick={privacyPolicy}
+                    className="text-primary"
+                  >
                     Caffeine & Chapters Privacy Policy
-                  </span>
+                  </button>
                 </label>
               </div>
             </div>
@@ -226,7 +249,10 @@ export const Signup = () => {
               >
                 Register
               </button>
-              <button className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg">
+              <button
+                onClick={showGoogle}
+                className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg"
+              >
                 <img
                   className="w-4 object-contain items-center"
                   src={googlelogo}
@@ -268,6 +294,51 @@ export const Signup = () => {
                 Close
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {showModal2 && (
+        <div className="fixed bg-primary top-0 left-0 w-full px-9 h-full flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white border-4 border-primary p-8 rounded-lg text-center">
+            <h1 className="text-justify px-32">
+              Caffeine and Chapters Privacy Vibes <br /> Yo, book nerds and
+              coffee addicts! Welcome to the Caffeine and Chapters spot, where
+              the pages turn and the coffee flows. We're all about good reads
+              and tasty brews, but we also respect your privacy hustle. Peep our
+              Privacy Vibes:
+              <br /> 1. Sippin' on Your Deets:
+              <br /> We only grab the must-haves to keep things flowing – your
+              name, email, and maybe your lit genre preferences. Don't worry,
+              we're not out here tryna write your life story – just enough to
+              keep your experience on point. <br />
+              2. Privacy Game Strong:
+              <br /> Your info is safe with us – no sketchy moves. We're not
+              selling, trading, or spilling your secrets to anyone not rollin'
+              with our squad. Our digital bouncers keep your data locked down
+              tighter than your favorite mystery novel.
+              <br /> 3. Cookie Crumbs, Not Snack Breaks:
+              <br /> We roll with digital cookies, not the edible kind. These
+              crumbs help us vibe with what you're into – like whether you're
+              all about sci-fi or vibing with romance. If you're not feeling the
+              cookie vibes, tweak your browser settings, but heads up – some
+              features might catch a chill.
+              <br /> 4. Links to Cool Spots:
+              <br /> We've got links to some rad places – think book suggestions
+              or dope coffee gear. Once you click, it's their turf, and our vibe
+              can't cover you. Check their privacy moves before you dive in.
+              <br /> 5. Updates to the Privacy Playlist:
+              <br /> Our vibe might switch up like a fresh playlist. We'll hit
+              you with the updates. If you're still vibing with us, awesome! If
+              not, it's cool – you can always bounce. Keep it lit at Caffeine
+              and Chapters! 📚☕️
+            </h1>
+            <button
+              type="button"
+              onClick={closeModal2}
+              className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
+            >
+              Accept
+            </button>
           </div>
         </div>
       )}

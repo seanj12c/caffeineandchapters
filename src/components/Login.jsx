@@ -4,6 +4,15 @@ import googlelogo from "../assets/google.png";
 import { Link } from "react-router-dom";
 import Clock from "react-live-clock";
 export const Login = () => {
+  const showGoogle = () => {
+    window.alert(
+      "Wala po tayong database kaya wala pong Google Sign-in \nDesign lang po talaga yun XD"
+    );
+  };
+
+  const forgotPassword = () => {
+    window.alert("Hala, Alalahanin mo muna saglit :(");
+  };
   return (
     <div className="h-full w-full">
       <div className="block md:hidden">
@@ -49,7 +58,7 @@ export const Login = () => {
                 <input type="checkbox" id="rememberMe" className="mr-2" />
                 <label htmlFor="rememberMe">Remember me</label>
               </div>
-              <a href="/">Forgot Password</a>
+              <button onClick={forgotPassword}>Forgot Password</button>
             </div>
             <div className="flex flex-col justify-center gap-2">
               <button>
@@ -60,7 +69,10 @@ export const Login = () => {
                   Login
                 </Link>
               </button>
-              <button className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg">
+              <button
+                onClick={showGoogle}
+                className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg"
+              >
                 <img
                   className="w-4 object-contain items-center"
                   src={googlelogo}
@@ -136,7 +148,7 @@ export const Login = () => {
                 <input type="checkbox" id="rememberMe" className="mr-2" />
                 <label htmlFor="rememberMe">Remember me</label>
               </div>
-              <a href="/">Forgot Password</a>
+              <button onClick={forgotPassword}>Forgot Password</button>
             </div>
             <div className="flex flex-col justify-center gap-2">
               <button>
@@ -147,7 +159,10 @@ export const Login = () => {
                   Login
                 </Link>
               </button>
-              <button className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg">
+              <button
+                onClick={showGoogle}
+                className="flex gap-2 items-center justify-center mx-auto border px-5 py-2 w-52 border-primary rounded-lg"
+              >
                 <img
                   className="w-4 object-contain items-center"
                   src={googlelogo}
