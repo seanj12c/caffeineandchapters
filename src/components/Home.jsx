@@ -24,11 +24,13 @@ export const Home = () => {
           sip enhances the magic of each chapter. Immerse yourself in a world
           where words and caffeine unite for a uniquely enriching escape.
         </p>
-        <Link to={"/menu"}>
-          <button className="bg-secondary mx-auto rounded-lg py-2 px-3">
-            Order Now
-          </button>
-        </Link>
+        <div className="flex md:justify-start justify-center">
+          <Link to={"/menu"}>
+            <button className="bg-secondary mx-auto rounded-lg py-2 px-3">
+              Order Now
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
